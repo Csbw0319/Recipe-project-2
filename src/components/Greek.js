@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {Splide, SplideSlide} from  '@splidejs/react-splide'
 import "@splidejs/splide/dist/css/splide.min.css"
 
+function Greek() {
 
+    const [greek, setGreek] = useState([]);
 
-function Popular() {
+    useEffect(() => {
+        getGreek();
+        }, []);
+        
+            const getGreek = async () => {
+                const api = await fetch(`https://api.spoonacular.com/recipes/greek?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
+                const data = await api.json();
+                setGreek(data.recipes)
+            };
 
-const [popular, setPopular] = useState([]);
-
-useEffect(() => {
-getPopular();
-}, []);
-
-    const getPopular = async () => {
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
-        const data = await api.json();
-        setPopular(data.recipes)
-    };
-    return (
+  return (
     <div>
            <Wrapper> 
-            <h3>Popular Recipes</h3>
+            <h3>Greek Recipes</h3>
 
             <Splide options={{
                 perPage: 4,
             }}>
-            {popular.map((recipe) => {
+            {greek.map((recipe) => {
                 return (
                     <SplideSlide key={recipe.id}>
                     <Card>
@@ -49,5 +48,4 @@ min-height: 25rem;
 border-radius: 2rem;
 `
 
-
-export default Popular
+export default Greek
