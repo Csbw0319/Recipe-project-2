@@ -43,8 +43,8 @@ getPopular();
                 return (
                     <SplideSlide key={recipe.id}>
                     <Card>
-                        <Link to={'/recipe/' + recipe.id}>
-                       <img src={recipe.image} alt={recipe.title} />
+                        <Link className='link' to={'/recipe/' + recipe.id}>
+                       <img className='image' src={recipe.image} alt={recipe.title} />
                        <p className='recipe-name'>{recipe.title}</p> 
                        </Link>
                     </Card>
@@ -58,11 +58,12 @@ getPopular();
 }
 const Wrapper = styled.div `
 margin: 4rem 0rem;
+text-decoration: none;
 
 `
 
 const Card = styled.div`
-
+text-decoration: none;
 border-radius: 1rem;
 width: 100%
 overflow: hidden;

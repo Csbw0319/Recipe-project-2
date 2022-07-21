@@ -41,8 +41,8 @@ function Mediterranean() {
                 return (
                     <SplideSlide key={recipe.id}>
                     <Card>
-                    <Link to={'/recipe/' + recipe.id}>
-                       <img src={recipe.image} alt={recipe.title} />
+                    <Link className='link' to={'/recipe/' + recipe.id}>
+                       <img className='image' src={recipe.image} alt={recipe.title} />
                        <p>{recipe.title}</p> 
                        </Link>
                     </Card>

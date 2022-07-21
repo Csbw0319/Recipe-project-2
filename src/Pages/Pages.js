@@ -3,7 +3,6 @@ import Home from './Home'
 import { Route, Routes } from "react-router-dom"; 
 import Searched from './Searched';
 import Recipe from './Recipe';
-import { FaHome } from 'react-icons/fa';
 
 function Pages() {
   return (

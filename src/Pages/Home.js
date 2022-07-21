@@ -1,13 +1,10 @@
 import Popular from "../components/Popular";
-import Search from "../components/Search";
-import React, { useState } from 'react'
 import Vegetarian from "../components/Vegetarian";
-import Mediterranean from "../components/Mediterranean";import Greek from "../components/Greek";
+import Mediterranean from "../components/Mediterranean";
 
 function Home() {
   return (
     <div>
-    <Search />
     <h4>Need Inspiration? Look below!</h4>
     <Popular />
     <Vegetarian />
