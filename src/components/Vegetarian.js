@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {Splide, SplideSlide} from  '@splidejs/react-splide'
 import "@splidejs/splide/dist/css/splide.min.css"
+import { Link } from 'react-router-dom'
+
 
 function Vegetarian() {
 
@@ -12,10 +14,19 @@ function Vegetarian() {
         }, []);
         
             const getVegetarian = async () => {
-                const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&tags=vegetarian`);
+                const check = localStorage.getItem('vegetarian');
+
+                if(check){
+                    setVegetarian(JSON.parse(check));
+                }else{
+                    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&tags=vegetarian`);
                 const data = await api.json();
                 setVegetarian(data.recipes)
-                console.log(data)
+
+                localStorage.setItem('vegetarian', JSON.stringify(data.recipes));
+                }
+               
+            
             };
 
   return (
@@ -33,8 +44,10 @@ function Vegetarian() {
                 return (
                     <SplideSlide key={recipe.id}>
                     <Card>
+                      <Link to={'/recipe/' + recipe.id}>
                        <img src={recipe.image} alt={recipe.title} />
                        <p>{recipe.title}</p> 
+                       </Link>
                     </Card>
                     </SplideSlide>
                 )
@@ -45,10 +58,10 @@ function Vegetarian() {
     );
 }
 const Wrapper = styled.div `
-margin: 4rem 0rem;`
+margin: 4rem 1rem;`
 
 const Card = styled.div`
-min-height: 25rem;
+
 border-radius: 1rem;
 width: 100%
 `

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {Splide, SplideSlide} from  '@splidejs/react-splide'
 import "@splidejs/splide/dist/css/splide.min.css"
-
+import { Link } from 'react-router-dom'
 
 
 function Popular() {
@@ -14,15 +14,25 @@ getPopular();
 }, []);
 
     const getPopular = async () => {
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
-        const data = await api.json();
-        setPopular(data.recipes)
+        const check = localStorage.getItem('popular');
+
+        if(check){
+            setPopular(JSON.parse(check));
+        }else{
+            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
+            const data = await api.json();
+            setPopular(data.recipes)
+
+            localStorage.setItem('popular', JSON.stringify(data.recipes));
+        }
+        
+      
     };
     return (
     <div>
-           <Wrapper> 
-            <h3>Popular Recipes</h3>
-
+        <Wrapper> 
+        <h3>Popular Recipes</h3>
+    
             <Splide options={{
                 perPage: 4,
                 arrows: false,
@@ -33,8 +43,10 @@ getPopular();
                 return (
                     <SplideSlide key={recipe.id}>
                     <Card>
+                        <Link to={'/recipe/' + recipe.id}>
                        <img src={recipe.image} alt={recipe.title} />
-                       <p>{recipe.title}</p> 
+                       <p className='recipe-name'>{recipe.title}</p> 
+                       </Link>
                     </Card>
                     </SplideSlide>
                 )
@@ -45,12 +57,15 @@ getPopular();
     );
 }
 const Wrapper = styled.div `
-margin: 4rem 0rem;`
+margin: 4rem 0rem;
+
+`
 
 const Card = styled.div`
-min-height: 25rem;
+
 border-radius: 1rem;
 width: 100%
+overflow: hidden;
 `
 
 

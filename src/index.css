@@ -14,7 +14,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0% 20%;
+  margin: 0 70px;
+  margin-bottom: 0;
 }
 
 code {
@@ -38,10 +39,12 @@ h1 {
 
 p {
   text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
 h3 {
-margin: 0 0 20px 20px;
+margin: 90px 0 20px 20px;
 }
 input:hover{
   cursor: pointer;
@@ -50,16 +53,40 @@ input {
 padding: 10px;
 border-radius: 20px;
 width: 50%;
-margin: 70px 0 0 150px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto;
 background-color: rgba(211, 66, 66, 0.76);
+outline: none;
+text-indent: 30px;
+margin-top: 100px;
 }
 button{
-  color: rgba(211, 66, 66, 0.76);
   padding: 10px;
   border-radius: 2rem;
+  
 }
 h4{
 text-align: center;
 margin-top: 20px;
+}
+.icon{
+  display: flex;
+  justify-items: flex-start;
+  margin: auto;
+  top: 250px;
+  right: 920px;
+}
+.input{
+  position: relative;
+}
+
+.recipe-name{
+  text-decoration: none;
+}
+span{
+  position: absolute;
+
 }
 
