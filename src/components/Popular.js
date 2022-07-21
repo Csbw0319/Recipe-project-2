@@ -25,6 +25,9 @@ getPopular();
 
             <Splide options={{
                 perPage: 4,
+                arrows: false,
+                pagination: false,
+                drag: 'free'
             }}>
             {popular.map((recipe) => {
                 return (
@@ -46,7 +49,8 @@ margin: 4rem 0rem;`
 
 const Card = styled.div`
 min-height: 25rem;
-border-radius: 2rem;
+border-radius: 1rem;
+width: 100%
 `
 
 

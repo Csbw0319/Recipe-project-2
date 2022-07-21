@@ -12,7 +12,7 @@ function Greek() {
         }, []);
         
             const getGreek = async () => {
-                const api = await fetch(`https://api.spoonacular.com/recipes/greek?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
+                const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&tags=greek`);
                 const data = await api.json();
                 setGreek(data.recipes)
             };
@@ -24,6 +24,9 @@ function Greek() {
 
             <Splide options={{
                 perPage: 4,
+                arrows: false,
+                pagination: false,
+                drag: 'free',
             }}>
             {greek.map((recipe) => {
                 return (
@@ -45,7 +48,8 @@ margin: 4rem 0rem;`
 
 const Card = styled.div`
 min-height: 25rem;
-border-radius: 2rem;
+border-radius: 1rem;
+width: 100%
 `
 
 export default Greek

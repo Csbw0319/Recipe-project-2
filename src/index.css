@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family:'Albert Sans', sans-serif;
+
 }
 
 body {
@@ -13,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0% 20%
+  margin: 0% 20%;
 }
 
 code {
@@ -22,9 +23,10 @@ code {
 }
 
 img {
-  width: 80%;
+  width: 100%;
   margin: 0 20px;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 0%;
 }
 h1 {
   text-align: center;
@@ -56,3 +58,8 @@ button{
   padding: 10px;
   border-radius: 2rem;
 }
+h4{
+text-align: center;
+margin-top: 20px;
+}
+
