@@ -1,6 +1,6 @@
 # Deeeeelish
 
-My app, "Deeeeelish", is a fully functioning application that allows it's users to find any recipe by just a simple search. User's are able to search for recipes by ingredients, specified recipe, by cuisine, by type, etc. It will then list out in a brief summary the cooking instructions as well as ingredients and nutrition facts. If a user doesn't know what they would like to search for, there are randomly generated recipes on the home page for inspiration, viewable via three carousels.
+My app, "Deeeeelish", is a fully functioning recipe application that allows it's users to find any recipe by just a simple search. User's are able to search for recipes by ingredients, specified recipe, by cuisine, by type, etc. It will then list out in a brief summary the cooking instructions as well as ingredients and nutrition facts. If a user doesn't know what they would like to search for, there are randomly generated recipes on the home page for inspiration, viewable via three carousels.
 
 ## Technologies Used
 
